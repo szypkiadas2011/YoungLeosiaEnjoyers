@@ -16,3 +16,9 @@ input
     width: 100%;
     box-sizing: border-box;
 }
+
+#colorpicker
+{
+    display: inline;
+    width: revert;
+}
