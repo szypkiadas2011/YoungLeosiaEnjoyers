@@ -33,3 +33,8 @@
 <h2> Statystyki </h2>
 	<li> top komentowane posty
 	<li> najlepiej oceniane
+
+
+
+
+Fiżma: https://www.figma.com/file/Xs7AZyDMOlpjuYLGmAfmTQ/Prodżekt?node-id=0%3A1&t=PbVRiEvycJ4FqoZj-0
