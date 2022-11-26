@@ -1,23 +1,35 @@
 # YoungLeosiaEnjoyers
-Uwzględnienie wymagań z uwzględnieniem sytuacji wyjątkowych:
-  (5 pkt) wyświetlanie informacji o poscie na subreddicie:
-     > 👍tytułu
-     > treści 
-     > wyświetlanie komentarzy
-     > 👍załączników
-     > wyświetlanie autora
-  (1 pkt) like/dislike (działające)
-  (2 pkt) sortowanie subredditów według:
-        > 0.5 pkt najnowsze
-        > 0.5 pkt najstarsze
-        > 1 pkt alfabetycznie po nazwie i odwrotnie
-  (1 pkt) ukrywanie postów
-  (2 pkt) wyszukiwanie postów na subbredicie po:
-        > 0.5 pkt słowach kluczowych
-        > 0.5 pkt nazwie
-        > 0.5 pkt autorze
-        > 0.5 pkt dacie
-  (2 pkt) wyświetlanie max 10 postów z możliwością przewijania dalej
-  (1 pkt) wyświetlanie wybranej przez uzytkownika ilosci postów
-  (1 pkt) informacje o subreddicie (użytkownicy ogólnie i online, ranking, data stworzenia)
-  (2 pkt) statystyki: np. najbardziej komentowane posty, najlepiej oceniane
+<h2> Wyświetlanie informacji o poscie na subreddicie 
+	<li> treść
+	<li> wyświetlanie komentarzy
+	<li> wyświetlanie załączników
+	<li> wyświetlanie autora
+
+<h2> Like / Dislike </h2>
+ (mają działać)
+
+<h2> Sortowanie subredditow </h2>
+	<li> najnowsze
+	<li> najstarsze
+	<li> alfabetycznie po nazwie i na odwrót
+	
+<h2> Ukrywanie postów </h2>
+
+<h2> Wyszukiwanie postów po: </h2>
+	<li> słowach kluczowych
+	<li> nazwie
+	<li> autorze
+	<li> dacie
+	
+<h2> wyświetlanie max 10 postów z możliwością przewijania dalej </h2>
+
+<h2> wyświetlanie wybranej przez uzytkownika ilosci postów </h2>
+
+<h2> informacje o subreddicie </h2>
+	<li> użytkownicy w sumie / online
+	<li> ranking
+	<li> data utworzenia	
+
+<h2> Statystyki </h2>
+	<li> top komentowane posty
+	<li> najlepiej oceniane
