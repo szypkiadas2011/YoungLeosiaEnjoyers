@@ -2,47 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <table>
-            <tr>
-                <h1>To jest znacznik h1</h1>
-            </tr>
-            <tr>
-                <h2>To jest znacznik h2</h2>
-            </tr>
-            <tr>
-                <h3>To jest znacznik h3</h3>
-            </tr>
-            <tr>
-                <h4>To jest znacznik h4</h4>
-            </tr>
-            <tr>
-                <h5>To jest znacznik h5</h5>
-            </tr>
-            <tr>
-                <h6>To jest znacznik h6</h6>
-            </tr>
-        </table>
-        <p>To jest paragraf</p>
-    </nav>
-    <section>
-    <form>
-        Imie: <input type="text" name="imie" id="imie" placeholder="np. Karol"> <br>
-        Nazwisko: <input type="text" name="nazwisko" id="nazwisko" placeholder="np. Wojtyła"><br>
-        Data: <input type="date" name="data" id="data"><br>
-        Płeć 😋: <input type="text" name="plec" id="plec" placeholder="Postaraj sie "><br>
-        
-        <label for="colorpicker">Color wybor 🤓:</label>
-        <input type="color" id="colorpicker" value="#0000ff"><br>
-        <input type="button" value="Wyślij!" id="Submit">
-
-    </form>
-    <script src="main.js"></script>
-    <p>masło</p>
-</section>
+    <input type="button" value="button" onclick="fetchSubreddit(subredditFinder.value)">
+    <input type="text" id="subredditFinder">
+    <div id="main"></div>
+    <script src="script.js"></script>
+    
 </body>
 </html>
