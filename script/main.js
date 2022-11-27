@@ -1,4 +1,4 @@
-import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
 
 window.onload = () => {
