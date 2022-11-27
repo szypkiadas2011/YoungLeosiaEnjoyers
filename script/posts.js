@@ -1,8 +1,8 @@
 import { appendElement, appendImage, formatDate, formatKs } from "./utils.js";
 
-export function fetchPosts(sub, sort = "hot")
+export function fetchPosts(sub, sort, limit)
 {
-	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json`)
+	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
 }
