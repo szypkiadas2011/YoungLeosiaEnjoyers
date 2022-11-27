@@ -32,7 +32,9 @@ function renderPost(post)
 
 export function renderPosts(posts)
 {
-	console.log(posts);
+	if (posts.length === 0)
+		alert("api sie zesralo 💩");
+
 	return new Promise((resolve, reject) => {
 		posts.forEach(renderPost, document.getElementById("posts"));
 		resolve(posts);
