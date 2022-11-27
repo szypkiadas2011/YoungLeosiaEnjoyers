@@ -16,7 +16,7 @@ window.onload = () => {
 }
 
 
-function fetchSubreddit(sub)
+export function fetchSubreddit(sub)
 {
 	let limit = document.getElementById("postsLimit").value
 	let sort = document.getElementById("sorting").value

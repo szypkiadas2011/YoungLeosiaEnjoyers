@@ -1,4 +1,5 @@
 import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
+import { fetchSubreddit } from "./main.js";
 
 export function fetchPosts(sub = 'all', sort = 'hot', limit = '25')
 {
@@ -74,7 +75,8 @@ export function addPostHandlers(posts)
 
 export function handlePostsError(err)
 {
-	alert(err); // 🤷
+	fetchSubreddit()
+	alert(err) //do wyjebania 🤷
 }
 
 export function clearPreviousPosts(posts)
