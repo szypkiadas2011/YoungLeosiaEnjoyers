@@ -16,7 +16,7 @@ function renderPost(post)
 	// const title = document.createElement("p");
 	// title.textContent = post.title;
 	// div.appendChild(title);
-	appendElement(div, "p", post.title);
+	appendElement(div, "p", "title", post.title);
 
 	this.appendChild(div);
 }
