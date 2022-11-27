@@ -7,6 +7,17 @@ export function fetchPosts(sub, sort = "hot")
 		.then(json => json.data.children.map(p => p.data))
 }
 
+export function sortPostsByTitle(sortType, posts)
+{
+	if (sortType !== "az" || sortType !== "za")
+		return;
+
+	posts.sort((a, b) => sortType === "az" ?
+		a.title.charCodeAt(0) > b.title.charCodeAt(0) :
+		a.title.charCodeAt(0) < b.title.charCodeAt(0)
+	);
+}
+
 function renderPost(post)
 {
 	const div = document.createElement("div");
