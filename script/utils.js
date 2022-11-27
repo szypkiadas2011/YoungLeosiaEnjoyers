@@ -5,10 +5,13 @@ export const appendElement = (parent, type, className, content) => {
 	element.innerHTML = content;
 	element.className = className;
 	parent.appendChild(element);
+	return element;
 };
 
-export const appendImage = (parent, url) => {
+export const appendImage = (parent, className, url) => {
 	let element = document.createElement("img");
 	element.src = url;
+	element.className = className;
 	parent.appendChild(element);
+	return element;
 }
