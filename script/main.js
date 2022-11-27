@@ -1,9 +1,8 @@
 import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
 
 window.onload = () => {
-	document.getElementById("searchbtn").onclick = () => {
-		fetchSubreddit(document.getElementById("searchbar").value);
-
+	document.getElementById("searchbar").onkeyup = (e) => {
+		if(e.key == 'Enter') fetchSubreddit(document.getElementById("searchbar").value);
 	}
 
 	// default fetch
