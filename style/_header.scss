@@ -1,12 +1,32 @@
+@import "vars";
+
 header
 {
 	display: flex;
 	justify-content: space-between;
-	padding: 1.8rem;
+	padding: 1.5rem;
 	background-color: #fff;
 
-	& section
+	img
 	{
-		width: 50%;
+		width: 60px;
 	}
+
+	section
+	{
+		width: $post-width;
+		box-sizing: border-box;
+		input
+		{
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+}
+
+input
+{
+	border-radius: 5px;
+	border: 1px solid #505050;
+	box-shadow: 1px 2px 2px 0 black;
 }

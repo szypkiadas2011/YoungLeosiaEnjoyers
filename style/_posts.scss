@@ -1,28 +1,47 @@
 @import "vars";
 
-#posts
+output
 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	margin-top: 1rem;
+
+	@media screen and (min-width: $large-screen)
+	{
+		width: $post-width;
+	}
+	@media screen and (max-width: $small-screen)
+	{
+		width: 100%;
+	}
 
 	.post
 	{
-		width: 60%;
+		@media screen and (min-width: $large-screen)
+		{
+			padding: .5rem;
+			border-radius: $border-radius;
+		}
+		@media screen and (max-width: $small-screen)
+		{
+			padding: 0 .5rem;
+		}
 		background-color: #fff;
-		border-radius: $border-radius;
 
 		display: flex;
 
 		.upsBar
 		{
-			padding: 1rem;
-
+			padding: .5rem;
+			display: flex;
+			flex-direction: column;
+			max-width: 55px;
 		}
 
 		.postMain
 		{
-			padding: 1rem;
+			display: flex;
+			flex-direction: column;
+			padding: .5rem;
+			max-width: 100%;
 
 			.postInfo
 			{
@@ -31,17 +50,27 @@
 
 			.postContent
 			{
+				display: flex;
+				margin-top: 1rem;
 
 				img
 				{
 					max-width: 100%;
+					border-radius: $border-radius;
 				}
 			}
 		}
 
 		&:not(:last-child)
 		{
-			margin-bottom: .25rem;
+			@media screen and (min-width: $large-screen)
+			{
+				margin-bottom: 1rem;
+			}
+			@media screen and (max-width: $small-screen)
+			{
+				margin-bottom: .25rem;
+			}
 		}
 	}
 }
