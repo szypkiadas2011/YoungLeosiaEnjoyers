@@ -1,4 +1,4 @@
-import { appendElement } from "./utils.js";
+import { appendElement, formatDate } from "./utils.js";
 
 export function fetchPosts(sub, sort = "hot")
 {
@@ -13,10 +13,8 @@ function renderPost(post)
 	div.className = "post";
 	div.id = `${post.subreddit}/${post.id}`;
 
-	// const title = document.createElement("p");
-	// title.textContent = post.title;
-	// div.appendChild(title);
 	appendElement(div, "p", "title", post.title);
+	appendElement(div, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))}`);
 
 	this.appendChild(div);
 }
