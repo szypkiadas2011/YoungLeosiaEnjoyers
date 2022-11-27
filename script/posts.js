@@ -18,11 +18,14 @@ function renderPost(post)
 	appendElement(upsBar, "span", "ups", formatKs(post.ups));
 	appendImage(upsBar, "down", "", "Down"); // todo
 
-	let content = appendElement(div, "div", "content");
-	appendElement(content, "p", "title", post.title);
-	appendElement(content, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
+	let postMain = appendElement(div, "div", "postMain");
 
-	appendImage(content, "", post.url);
+	let postInfo = appendElement(postMain, "div", "postInfo");
+	appendElement(postInfo, "p", "title", post.title);
+	appendElement(postInfo, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
+
+	let postContent = appendElement(postMain, "div", "postMain");
+	appendImage(postMain, "", post.url);
 
 	this.appendChild(div);
 }
