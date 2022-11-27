@@ -1,24 +1,10 @@
 import { appendElement, appendImage, formatDate, formatKs } from "./utils.js";
 
-export function fetchPosts(sub, sort = "hot", limit = 25)
+export function fetchPosts(sub = 'all', sort = 'hot', limit = '25')
 {
 	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
-}
-
-export function sortPostsByTitle(sortType, posts)
-{	
-	return new Promise((resolve, reject) => {
-		if (sortType !== "az" || sortType !== "za")
-			return;
-
-		posts.sort((a, b) => sortType === "az" ?
-			a.title.charCodeAt(0) > b.title.charCodeAt(0) :
-			a.title.charCodeAt(0) < b.title.charCodeAt(0)
-		);
-		resolve(posts)	
-	})
 }
 
 function renderPost(post)

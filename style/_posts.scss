@@ -1,41 +1,12 @@
-@import "vars";
-
 #posts
 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	&:not(:last-child)
+	{
+		margin-bottom: .25rem;
+	}
 
 	.post
 	{
-		width: 50%;
 		background-color: #fff;
-		border: $border-radius;
-
-		display: flex;
-
-		#upsBar
-		{
-			display: flex;
-			flex-direction: column;
-
-			*
-			{
-				display: block;
-			}
-		}
-
-		#postMain
-		{
-			img
-			{
-				max-width: 100%;
-			}
-		}
-
-		&:not(:last-child)
-		{
-			margin-bottom: .5rem;
-		}
 	}
 }
