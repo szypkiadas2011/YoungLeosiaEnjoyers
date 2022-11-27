@@ -46,3 +46,8 @@ export function formatKs(i)
 
 	return String(Math.round(ret)) + suffix;
 }
+
+export function formatHtml(html)
+{
+	return html.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("\\\"", "\"");
+}

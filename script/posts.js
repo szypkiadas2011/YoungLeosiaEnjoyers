@@ -1,7 +1,8 @@
-import { appendElement, appendImage, formatDate, formatKs } from "./utils.js";
+import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
 
 export function fetchPosts(sub = 'all', sort = 'hot', limit = '25')
 {
+
 	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
@@ -21,11 +22,18 @@ function renderPost(post)
 	let postMain = appendElement(div, "div", "postMain");
 
 	let postInfo = appendElement(postMain, "div", "postInfo");
-	appendElement(postInfo, "p", "title", post.title);
+	appendElement(postInfo, "h3", "title", post.title);
 	appendElement(postInfo, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
 
 	let postContent = appendElement(postMain, "div", "postContent");
-	appendImage(postContent, "", post.url);
+	let hint = post.post_hint;
+	if (hint && hint === "image" && post.url)
+		appendImage(postContent, "", post.url);
+	else if (post.url)
+		appendElement(postContent, "a", "postLink", post.url).href = post.url;
+
+	if (post.selftext_html)
+		appendElement(postContent, "p", "", formatHtml(post.selftext_html));
 
 	this.appendChild(div);
 }
