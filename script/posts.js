@@ -26,14 +26,14 @@ function renderPost(post)
 	appendElement(postInfo, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
 
 	let postContent = appendElement(postMain, "div", "postContent");
+	if (post.selftext_html)
+		appendElement(postContent, "p", "", formatHtml(post.selftext_html));
+
 	let hint = post.post_hint;
 	if (hint && hint === "image" && post.url)
 		appendImage(postContent, "", post.url);
 	else if (post.url)
 		appendElement(postContent, "a", "postLink", post.url).href = post.url;
-
-	if (post.selftext_html)
-		appendElement(postContent, "p", "", formatHtml(post.selftext_html));
 
 	this.appendChild(div);
 }
