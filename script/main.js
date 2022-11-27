@@ -1,8 +1,9 @@
-import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { addPostHandlers, fetchPosts, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
 
 window.onload = () => {
 	document.getElementById("searchbtn").onclick = () => {
 		fetchSubreddit(document.getElementById("searchbar").value);
+
 	}
 
 	// default fetch
@@ -12,11 +13,15 @@ window.onload = () => {
 		.catch(handlePostsError)
 }
 
+
 function fetchSubreddit(sub)
 {
 	document.getElementById("posts").innerHTML = "";
+	let limit = document.getElementById("postsLimit").value
+	let sort = document.getElementById("sorting").value
 
-	fetchPosts(sub)
+	fetchPosts(sub ? sub : "all", sort ? sort : "hot", limit ? limit : 25)
+		.then(posts => sortPostsByTitle(sort, posts))
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
