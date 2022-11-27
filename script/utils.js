@@ -49,5 +49,7 @@ export function formatKs(i)
 
 export function formatHtml(html)
 {
-	return html.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("\\\"", "\"").replaceAll("&#39;", "\'");
+	if (!html)
+		return "";
+	return html.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("\\\"", "\"").replaceAll("&amp;", "&").replaceAll("&#39;", "\'");
 }
