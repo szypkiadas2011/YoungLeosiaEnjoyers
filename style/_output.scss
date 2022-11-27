@@ -1,0 +1,17 @@
+@import "vars";
+
+output
+{
+	margin-top: 1rem;
+	display: flex;
+
+	@media screen and (min-width: $large-screen)
+	{
+		width: $post-width;
+	}
+	@media screen and (max-width: $small-screen)
+	{
+		width: 100%;
+		flex-direction: column-reverse;
+	}
+}

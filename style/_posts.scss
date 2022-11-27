@@ -1,93 +1,79 @@
 @import "vars";
 
-output
+#posts .post
 {
-	margin-top: 1rem;
+	display: flex;
+	background-color: #fff;
 
 	@media screen and (min-width: $large-screen)
 	{
-		width: $post-width;
+		padding: .5rem;
+		border-radius: $border-radius;
 	}
 	@media screen and (max-width: $small-screen)
 	{
-		width: 100%;
+		padding: 0 .5rem;
 	}
 
-	.post
+	.upsBar
 	{
 		display: flex;
-		background-color: #fff;
+		flex-direction: column;
+		align-items: center;
+		max-width: 55px;
+		padding: .5rem;
+		font-family: 'Comic Neue', cursive;
 
-		@media screen and (min-width: $large-screen)
+		img
 		{
-			padding: .5rem;
-			border-radius: $border-radius;
+			max-width: 20px;
 		}
-		@media screen and (max-width: $small-screen)
+	}
+
+	.postMain
+	{
+		display: flex;
+		flex-direction: column;
+		padding: .5rem;
+		max-width: 100%;
+
+		.postInfo
 		{
-			padding: 0 .5rem;
+			.subtitle
+			{
+				color: rgb(100, 100, 100);
+				font-size: 13px;
+			}
+
+			.title
+			{
+				margin-top: 0;
+			}
 		}
 
-		.upsBar
+		.postContent
 		{
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			max-width: 55px;
-			padding: .5rem;
-			font-family: 'Comic Neue', cursive;
+			margin-top: 1rem;
 
 			img
 			{
-				max-width: 20px;
+				max-width: 100%;
+				border-radius: $border-radius;
 			}
 		}
+	}
 
-		.postMain
+	&:not(:last-child)
+	{
+		@media screen and (min-width: $large-screen)
 		{
-			display: flex;
-			flex-direction: column;
-			padding: .5rem;
-			max-width: 100%;
-
-			.postInfo
-			{
-				.subtitle
-				{
-					color: rgb(100, 100, 100);
-					font-size: 13px;
-				}
-
-				.title
-				{
-					margin-top: 0;
-				}
-			}
-
-			.postContent
-			{
-				display: flex;
-				flex-direction: column;
-				margin-top: 1rem;
-
-				img
-				{
-					max-width: 100%;
-					border-radius: $border-radius;
-				}
-			}
+			margin-bottom: 1rem;
 		}
-
-		&:not(:last-child)
+		@media screen and (max-width: $small-screen)
 		{
-			@media screen and (min-width: $large-screen)
-			{
-				margin-bottom: 1rem;
-			}
-			@media screen and (max-width: $small-screen)
-			{
-				margin-bottom: .25rem;
-			}
+			margin-bottom: .25rem;
 		}
 	}
 }
