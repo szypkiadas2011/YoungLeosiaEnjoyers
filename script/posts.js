@@ -24,7 +24,7 @@ function renderPost(post)
 	appendElement(postInfo, "p", "title", post.title);
 	appendElement(postInfo, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
 
-	let postContent = appendElement(postMain, "div", "postMain");
+	let postContent = appendElement(postMain, "div", "postContent");
 	appendImage(postMain, "", post.url);
 
 	this.appendChild(div);
