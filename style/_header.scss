@@ -4,12 +4,14 @@ header
 {
 	display: flex;
 	justify-content: space-between;
-	padding: 1.5rem;
+	align-items: center;
+	padding: .5rem;
 	background-color: #fff;
 
 	img
 	{
-		width: 60px;
+		width: 100px;
+		padding: 0.5;
 	}
 
 	section
@@ -39,13 +41,31 @@ input
 			color: gray;
 		}
 	}
+	&:hover{
+		background-color: rgb(205, 205, 205);
+	}
 }
-
+input[type="button"]{
+	box-shadow: 1px 1px 2px rgb(192, 192, 192);
+	padding-bottom: 7px;
+	&:active{
+		box-shadow: inset 2px 2px 2px rgb(167, 167, 167);
+		padding-top: 7px;
+		padding-left: 7px;
+		padding-bottom: 8px;
+		padding-right: 9px;
+		margin-left: 2px;
+	}
+}
 input[type="number"]
 {
 	max-width: 5rem;
-	-webkit-appearance: none;
 	-moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 select
@@ -55,4 +75,8 @@ select
 	background-color: rgb(223, 223, 223);
 	padding: 8px;
 	outline: none;
+	&:hover{
+		background-color: rgb(205, 205, 205);
+	}
 }
+
