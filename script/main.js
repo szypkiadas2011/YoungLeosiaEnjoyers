@@ -2,6 +2,7 @@ import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, rend
 import { fetchRules, renderRules } from "./rules.js";
 
 window.onload = () => {
+	document.getElementById("logo").onclick = () => fetchSubreddit("all");
 	document.getElementById("searchbar").onkeyup = (e) => {
 		if(e.key === 'Enter')
 			fetchSubreddit(document.getElementById("searchbar").value);
