@@ -27,7 +27,7 @@ header
 input
 {
 	border-radius: 7px;
-	border: 0px;
+	border: 0;
 	background-color: rgb(223, 223, 223);
 	padding: 8px;
 	outline: none;
@@ -39,4 +39,20 @@ input
 			color: gray;
 		}
 	}
+}
+
+input[type="number"]
+{
+	max-width: 5rem;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+}
+
+select
+{
+	border-radius: 7px;
+	border: 0;
+	background-color: rgb(223, 223, 223);
+	padding: 8px;
+	outline: none;
 }
