@@ -2,7 +2,16 @@
 
 output #sidebar
 {
-	width: 30%;
+	font-size: 70%;
+
+	@media screen and (min-width: $large-screen)
+	{
+		width: 35%;
+	}
+	@media screen and (max-width: $small-screen)
+	{
+		width: 100%;
+	}
 
 	#info
 	{

@@ -9,10 +9,12 @@
 	{
 		padding: .5rem;
 		border-radius: $border-radius;
+		margin-top: 1rem;
 	}
 	@media screen and (max-width: $small-screen)
 	{
 		padding: 0 .5rem;
+		margin-top: .25rem;
 	}
 
 	.upsBar
@@ -62,18 +64,6 @@
 				max-width: 100%;
 				border-radius: $border-radius;
 			}
-		}
-	}
-
-	&:not(:last-child)
-	{
-		@media screen and (min-width: $large-screen)
-		{
-			margin-bottom: 1rem;
-		}
-		@media screen and (max-width: $small-screen)
-		{
-			margin-bottom: .25rem;
 		}
 	}
 }

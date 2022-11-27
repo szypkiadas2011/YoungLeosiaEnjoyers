@@ -5,7 +5,8 @@ $color-fg2: #44449B;
 
 $border-radius: 10px;
 
-$large-screen: 600px;
-$small-screen: 599px;
+$large-screen: 700px;
+$small-screen: 699px;
 
 $post-width: 60%;
+$post-minwidth: $large-screen - 100px;

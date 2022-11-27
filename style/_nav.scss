@@ -13,6 +13,7 @@ main nav
 	@media screen and (min-width: $large-screen)
 	{
 		width: $post-width;
+		min-width: $post-minwidth;
 		border-radius: $border-radius;
 		margin-top: 1rem;
 	}
