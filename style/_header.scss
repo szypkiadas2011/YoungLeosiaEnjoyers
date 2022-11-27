@@ -26,7 +26,17 @@ header
 
 input
 {
-	border-radius: 5px;
-	border: 1px solid #505050;
-	box-shadow: 1px 2px 2px 0 black;
+	border-radius: 7px;
+	border: 0px;
+	background-color: rgb(223, 223, 223);
+	padding: 8px;
+	outline: none;
+	&::placeholder {
+		color: black;
+	}
+	&:focus-visible {
+		&::placeholder{
+			color: gray;
+		}
+	}
 }
