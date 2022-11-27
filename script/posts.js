@@ -63,3 +63,11 @@ export function handlePostsError(err)
 {
 	alert(err); // 🤷
 }
+
+export function clearPreviousPosts(posts)
+{
+	return new Promise((resolve, reject) => {
+		document.getElementById("posts").innerHTML = "";
+		resolve(posts);
+	});
+}

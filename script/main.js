@@ -1,4 +1,4 @@
-import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
 
 window.onload = () => {
 	document.getElementById("searchbar").onkeyup = (e) => {
@@ -16,11 +16,11 @@ window.onload = () => {
 
 function fetchSubreddit(sub)
 {
-	document.getElementById("posts").innerHTML = "";
 	let limit = document.getElementById("postsLimit").value
 	let sort = document.getElementById("sorting").value
 
 	fetchPosts(sub ? sub : "all", sort ? sort : "hot", limit ? limit : 25)
+		.then(clearPreviousPosts)
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
