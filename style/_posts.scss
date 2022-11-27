@@ -45,12 +45,16 @@ output
 
 			.postInfo
 			{
-
+				.title
+				{
+					margin-top: 0;
+				}
 			}
 
 			.postContent
 			{
 				display: flex;
+				flex-direction: column;
 				margin-top: 1rem;
 
 				img
