@@ -14,6 +14,8 @@ window.onload = () => {
 
 function fetchSubreddit(sub)
 {
+	document.getElementById("posts").innerHTML = "";
+
 	fetchPosts(sub)
 		.then(renderPosts)
 		.then(addPostHandlers)
