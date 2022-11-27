@@ -1,4 +1,5 @@
 import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { fetchRules, renderRules } from "./rules.js";
 
 window.onload = () => {
 	document.getElementById("logo").onclick = () => fetchSubreddit("all");
@@ -25,6 +26,10 @@ function fetchSubreddit(sub)
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
+
+	fetchRules(sub)
+		.then(renderRules)
+
 
 	// let parentDiv = document.getElementById('posts')
 	// parentDiv.innerHTML = ""
