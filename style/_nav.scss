@@ -1,0 +1,23 @@
+@import "vars";
+
+main nav
+{
+	width: $post-width;
+	background-color: #fff;
+	padding: 1rem;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: space-between;
+
+	@media screen and (min-width: $large-screen)
+	{
+		width: $post-width;
+		border-radius: $border-radius;
+		margin-top: 1rem;
+	}
+	@media screen and (max-width: $small-screen)
+	{
+		width: 100%;
+	}
+}

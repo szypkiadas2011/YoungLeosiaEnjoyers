@@ -20,7 +20,7 @@ export const appendImage = (parent, className, url, alt = "") => {
 export function formatDate(date)
 {
 	const pad = i => String(i).padStart(2, "0");
-	return `${pad(date.getHours())}:${pad(date.getMinutes())} ${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`;
+	return `${pad(date.getHours())}:${pad(date.getMinutes())} ${pad(date.getDay())}.${pad(date.getMonth())}.${date.getFullYear()}`;
 }
 
 export function formatKs(i)
@@ -45,4 +45,9 @@ export function formatKs(i)
 	}
 
 	return String(Math.round(ret)) + suffix;
+}
+
+export function formatHtml(html)
+{
+	return html.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("\\\"", "\"");
 }

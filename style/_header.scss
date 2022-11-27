@@ -1,12 +1,58 @@
+@import "vars";
+
 header
 {
 	display: flex;
 	justify-content: space-between;
-	padding: 1.8rem;
+	padding: 1.5rem;
 	background-color: #fff;
 
-	& section
+	img
 	{
-		width: 50%;
+		width: 60px;
 	}
+
+	section
+	{
+		width: $post-width;
+		box-sizing: border-box;
+		input
+		{
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+}
+
+input
+{
+	border-radius: 7px;
+	border: 0;
+	background-color: rgb(223, 223, 223);
+	padding: 8px;
+	outline: none;
+	&::placeholder {
+		color: black;
+	}
+	&:focus-visible {
+		&::placeholder{
+			color: gray;
+		}
+	}
+}
+
+input[type="number"]
+{
+	max-width: 5rem;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+}
+
+select
+{
+	border-radius: 7px;
+	border: 0;
+	background-color: rgb(223, 223, 223);
+	padding: 8px;
+	outline: none;
 }

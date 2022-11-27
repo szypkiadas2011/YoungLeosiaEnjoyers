@@ -6,4 +6,5 @@ export function fetchInfo(sub) {
 
 function renderInfo(info) {
     const infoDiv = document.getElementById("info");
+    infoDiv.innerHTML = info.acc
 }
