@@ -3,3 +3,7 @@ export function fetchInfo(sub) {
         .then(res => res.json())
         .then(json => json.data)
 }
+
+function renderInfo(info) {
+    const infoDiv = document.getElementById("info");
+}
