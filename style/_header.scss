@@ -2,5 +2,11 @@ header
 {
 	display: flex;
 	justify-content: space-between;
-	padding: 1rem;
+	padding: 1.8rem;
+	background-color: #fff;
+
+	& section
+	{
+		width: 50%;
+	}
 }

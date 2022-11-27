@@ -1,0 +1,12 @@
+#posts
+{
+	&:not(:last-child)
+	{
+		margin-bottom: .25rem;
+	}
+
+	.post
+	{
+		background-color: #fff;
+	}
+}

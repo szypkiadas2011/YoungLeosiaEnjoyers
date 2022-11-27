@@ -1,4 +1,4 @@
-import { appendElement, formatDate } from "./utils.js";
+import { appendElement, appendImage, formatDate, formatKs } from "./utils.js";
 
 export function fetchPosts(sub, sort = "hot")
 {
@@ -13,8 +13,16 @@ function renderPost(post)
 	div.className = "post";
 	div.id = `${post.subreddit}/${post.id}`;
 
-	appendElement(div, "p", "title", post.title);
-	appendElement(div, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))}`);
+	let upsBar = appendElement(div, "div", "upsBar");
+	appendImage(upsBar, "up", "", "Up"); // todo
+	appendElement(upsBar, "span", "ups", formatKs(post.ups));
+	appendImage(upsBar, "down", "", "Down"); // todo
+
+	let content = appendElement(div, "div", "content");
+	appendElement(content, "p", "title", post.title);
+	appendElement(content, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
+
+	appendImage(content, "", post.url);
 
 	this.appendChild(div);
 }

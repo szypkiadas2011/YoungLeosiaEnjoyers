@@ -1,7 +1,10 @@
+@import "vars";
+
 body
 {
 	margin: 0 !important;
+	background-color: $color-bg;
 }
 
-@import "vars";
 @import "header";
+@import "posts";
