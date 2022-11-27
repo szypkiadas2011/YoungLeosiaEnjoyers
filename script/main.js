@@ -1,6 +1,7 @@
 import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
 
 window.onload = () => {
+	document.getElementById("logo").onclick = () => fetchSubreddit("all");
 	document.getElementById("searchbar").onkeyup = (e) => {
 		if(e.key === 'Enter')
 			fetchSubreddit(document.getElementById("searchbar").value);
