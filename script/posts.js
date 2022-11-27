@@ -15,15 +15,15 @@ function renderPost(post)
 	div.id = `${post.subreddit}/${post.id}`;
 
 	let upsBar = appendElement(div, "div", "upsBar");
-	appendImage(upsBar, "up", "", "Up"); // todo
+	appendImage(upsBar, "up", "img/up.png", "Up");
 	appendElement(upsBar, "span", "ups", formatKs(post.ups));
-	appendImage(upsBar, "down", "", "Down"); // todo
+	appendImage(upsBar, "down", "img/down.png", "Down");
 
 	let postMain = appendElement(div, "div", "postMain");
 
 	let postInfo = appendElement(postMain, "div", "postInfo");
-	appendElement(postInfo, "h3", "title", post.title);
 	appendElement(postInfo, "span", "subtitle", `${post.author} posted on ${formatDate(new Date(post.created * 1000))} in ${post.subreddit_name_prefixed}`);
+	appendElement(postInfo, "h3", "title", post.title);
 
 	let postContent = appendElement(postMain, "div", "postContent");
 	if (post.selftext_html)
@@ -50,13 +50,26 @@ export function renderPosts(posts)
 }
 
 function addPostHandler(post)
-{
+{	
 
 }
 
 export function addPostHandlers(posts)
 {
 	posts.forEach(addPostHandler);
+	let up = document.getElementsByClassName("up")
+	let down = document.getElementsByClassName("down")
+
+	for (let i = 0; i < up.length; i++) {
+		up[i].onclick = () => {
+			up[i].src = "img/up_click.png"
+			down[i].src = "img/down.png"
+		}
+		down[i].onclick = () => {
+			down[i].src = "img/down_click.png"
+			up[i].src = "img/up.png"
+		}
+	}
 }
 
 export function handlePostsError(err)
