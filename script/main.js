@@ -3,6 +3,7 @@ import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./po
 window.onload = () => {
 	document.getElementById("searchbtn").onclick = () => {
 		fetchSubreddit(document.getElementById("searchbar").value);
+
 	}
 
 	// default fetch
@@ -12,11 +13,14 @@ window.onload = () => {
 		.catch(handlePostsError)
 }
 
+
 function fetchSubreddit(sub)
 {
 	document.getElementById("posts").innerHTML = "";
+	let limit = document.getElementById("postsLimit").value
+	let sort = document.getElementById("sorting").value
 
-	fetchPosts(sub)
+	fetchPosts(sub ? sub : "all", sort ? sort : "hot", limit ? limit : 25)
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
