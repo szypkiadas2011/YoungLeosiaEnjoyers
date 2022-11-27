@@ -13,4 +13,9 @@ output #sidebar
 	{
 
 	}
+
+	&.hidden
+	{
+		width: 0;
+	}
 }
