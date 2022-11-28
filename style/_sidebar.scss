@@ -34,7 +34,7 @@ output #sidebar
 	#info
 	{
 		@extend .sidebox;
-
+		font-size: 1rem;
 	}
 
 	#rules
@@ -62,5 +62,6 @@ output #sidebar
 	&.hidden
 	{
 		width: 0;
+		display: none;
 	}
 }

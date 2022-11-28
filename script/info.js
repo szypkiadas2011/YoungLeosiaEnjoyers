@@ -8,7 +8,7 @@ export function fetchInfo(sub) {
 
 export function renderInfo(info) {
     const infoDiv = document.getElementById("info");
-    infoDiv.innerHTML += "Data: " + formatDate(new Date(info.created * 1000)) + "<br>"
+    infoDiv.innerHTML = "Data: " + formatDate(new Date(info.created * 1000)) + "<br>"
     infoDiv.innerHTML += "Members: " + info.subscribers +  "<br>"
     infoDiv.innerHTML += "Online: " + info.active_user_count
 }
