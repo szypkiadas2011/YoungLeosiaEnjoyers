@@ -1,12 +1,28 @@
 import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
 import { fetchSubreddit } from "./main.js";
 
-export function fetchPosts(sub = 'all', sort = 'hot', limit = '25')
+export function fetchPosts(sub, sort = "hot", limit = 25)
 {
-
-	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json?limit=${limit}`)
+	return fetch(`https://www.reddit.com/r/${sub}/${customSort(sort) ? "hot" : sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
+}
+
+const customSort = sort => sort === "az" || sort === "za";
+
+export function sortPostsByTitle(posts, sortType)
+{
+	return new Promise((resolve, reject) => {
+		if (!customSort(sortType))
+			return resolve(posts);
+
+		const titleFirstLetter = post => post.title.toLowerCase().charCodeAt(0);
+		const az = (a, b) => titleFirstLetter(a) > titleFirstLetter(b);
+		const za = (a, b) => titleFirstLetter(a) < titleFirstLetter(b);
+		posts.sort(sortType === "az" ? az : za);
+
+		resolve(posts);
+	});
 }
 
 function renderPost(post)
@@ -46,6 +62,7 @@ export function renderPosts(posts)
 		alert("api sie zesralo 💩");
 
 	return new Promise((resolve, reject) => {
+		document.getElementById("posts").innerHTML = "";
 		posts.forEach(renderPost, document.getElementById("posts"));
 		resolve(posts);
 	});
@@ -78,12 +95,4 @@ export function handlePostsError(err)
 {
 	fetchSubreddit()
 	alert(err) //do wyjebania 🤷
-}
-
-export function clearPreviousPosts(posts)
-{
-	return new Promise((resolve, reject) => {
-		document.getElementById("posts").innerHTML = "";
-		resolve(posts);
-	});
 }

@@ -25,8 +25,8 @@ export function formatDate(date)
 
 export function formatKs(i)
 {
-	let ret;
-	let suffix;
+	let ret = i;
+	let suffix = "";
 
 	if (i >= 1000)
 	{
