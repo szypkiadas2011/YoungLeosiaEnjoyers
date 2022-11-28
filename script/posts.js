@@ -144,3 +144,12 @@ export function handlePostsError(err)
 	fetchSubreddit();
 	alert(err); //do wyjebania 🤷
 }
+
+function fetchPostComments(sub, post)
+{
+    return fetch(`https://www.reddit.com/r/${sub}/comments/${post}.json`)
+        .then(res => res.json())
+        .then(json => json.map(arr => arr.data).filter(e => !e.dist))
+        .then(arr => arr.map(e => e.children)[0])
+        .then(arr => arr.map(e => e.data))
+}
