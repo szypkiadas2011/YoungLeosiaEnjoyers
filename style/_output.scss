@@ -8,10 +8,12 @@ output
 	{
 		width: $post-width;
 		min-width: $post-minwidth;
+		margin-top: 1rem;
 	}
 	@media screen and (max-width: $small-screen)
 	{
 		width: 100%;
 		flex-direction: column-reverse;
+		margin-top: .25rem;
 	}
 }

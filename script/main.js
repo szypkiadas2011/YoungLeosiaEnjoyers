@@ -1,6 +1,5 @@
-import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { addPostHandlers, fetchPosts, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
-import { fetchInfo, renderInfo } from "./info.js";
 
 window.onload = () => {
 	document.getElementById("logo").onclick = () => fetchSubreddit("all");
@@ -17,12 +16,13 @@ window.onload = () => {
 }
 
 
-export function fetchSubreddit(sub) {
-	let limit = document.getElementById("postsLimit").value
-	let sort = document.getElementById("sorting").value
+function fetchSubreddit(sub)
+{
+	let limit = document.getElementById("postsLimit").value;
+	let sort = document.getElementById("sorting").value;
 
-	fetchPosts(sub ? sub : "all", sort ? sort : "hot", limit ? limit : 25)
-		.then(clearPreviousPosts)
+	fetchPosts(sub ? sub : "all", sort, limit)
+		.then(posts => sortPostsByTitle(posts, sort))
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
@@ -32,9 +32,7 @@ export function fetchSubreddit(sub) {
 
 	// info
 
-	fetchInfo(sub)
-		.then(renderInfo)
-
-	document.getElementById("sidebar hidden").id = "sidebar";
+	let sidebar = document.getElementById("sidebar hidden");
+	if (sidebar)
+		sidebar.id = "sidebar";
 }
-

@@ -2,33 +2,61 @@
 
 output #sidebar
 {
-	font-size: 70%;
+	font-size: .72rem;
 
 	@media screen and (min-width: $large-screen)
 	{
-		width: 35%;
+		width: 30%;
+		margin-left: 1rem;
 	}
 	@media screen and (max-width: $small-screen)
 	{
 		width: 100%;
 	}
 
+	.sidebox
+	{
+		background-color: #fff;
+
+		@media screen and (min-width: $large-screen)
+		{
+			border-radius: $border-radius;
+			margin-bottom: 1rem;
+			padding: 1rem;
+		}
+		@media screen and (max-width: $small-screen)
+		{
+			margin-bottom: .25rem;
+			padding: .5rem;
+		}
+	}
+
 	#info
 	{
-		background-color: white;
-		margin: 1rem;
-		padding: 1rem;
-		border-radius: $border-radius;
-		margin-top: 1rem;
+		@extend .sidebox;
+
 	}
 
 	#rules
 	{
-		background-color: white;
-		margin: 1rem;
-		padding: 1rem;
-		border-radius: $border-radius;
-		margin-top: 1rem;
+		@extend .sidebox;
+
+		h3
+		{
+			margin: 0;
+		}
+
+		ul
+		{
+			padding-left: 1rem;
+			padding-bottom: .25rem;
+			border-bottom: 1px solid lightgray;
+
+			p
+			{
+				margin: .25rem;
+			}
+		}
 	}
 
 	&.hidden

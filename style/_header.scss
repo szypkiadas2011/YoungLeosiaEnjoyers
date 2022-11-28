@@ -11,12 +11,18 @@ header
 	img
 	{
 		width: 100px;
+
+		&:hover
+		{
+			cursor: pointer;
+		}
 	}
 
 	section
 	{
 		width: $post-width;
-		box-sizing: border-box;
+		margin-inline: 1rem;
+
 		input
 		{
 			width: 100%;
