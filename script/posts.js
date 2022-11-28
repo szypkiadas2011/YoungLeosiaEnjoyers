@@ -7,6 +7,11 @@ export function fetchPosts(sub, sort = "hot", limit = 25)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
 }
+	export function fetchSearchPost(sub, sort = "hot", limit = 25, search) {
+		return fetch(`https://www.reddit.com/r/${sub}/search.json?q=${search}&sort=${sort}&limit=${limit}`)
+		.then(res => res.json())
+		.then(json => json.data.children.map(p => p.data))
+}
 
 const customSort = sort => sort === "az" || sort === "za";
 
@@ -71,7 +76,7 @@ export function renderPosts(posts)
 
 function addPostHandler(post)
 {	
-
+	
 }
 
 export function addPostHandlers(posts)

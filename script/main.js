@@ -1,4 +1,4 @@
-import { addPostHandlers, fetchPosts, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
+import { addPostHandlers, fetchPosts, fetchSearchPost, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
 
 window.onload = () => {
@@ -19,13 +19,23 @@ window.onload = () => {
 export function fetchSubreddit(sub)
 {
 	let limit = document.getElementById("postsLimit").value;
-	let sort = document.getElementById("sorting").value;
+	let sortType = document.getElementById("sorting").value;
+	let search = document.getElementById("filterbar").value
+	
 
-	fetchPosts(sub ? sub : "all", sort, limit)
-		.then(posts => sortPostsByTitle(posts, sort))
+	if(search != ""){
+		fetchSearchPost(sub ? sub : "all", sortType, limit, search)
+		.then(posts => sortPostsByTitle(posts, sortType))
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
+	}else{
+		fetchPosts(sub ? sub : "all", sortType, limit)
+		.then(posts => sortPostsByTitle(posts, sortType))
+		.then(renderPosts)
+		.then(addPostHandlers)
+		.catch(handlePostsError)
+	}
 
 	fetchRules(sub)
 		.then(renderRules)
