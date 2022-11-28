@@ -1,6 +1,6 @@
 import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
 
-export function fetchPosts(sub = 'all', sort, limit = 25)
+export function fetchPosts(sub, sort = "hot", limit = 25)
 {
 	return fetch(`https://www.reddit.com/r/${sub}/${customSort(sort) ? "hot" : sort}.json?limit=${limit}`)
 		.then(res => res.json())
