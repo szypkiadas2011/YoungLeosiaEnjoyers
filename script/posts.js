@@ -51,7 +51,9 @@ function renderPost(post)
 	appendImage(arrows, "up", "img/up.png", "Up");
 	appendElement(arrows, "span", "ups", formatKs(post.ups));
 	appendImage(arrows, "down", "img/down.png", "Down");
-	appendElement(upsBar, "span", "hideSpan", 'Hide');
+	let bottomUpsbar = appendElement(upsBar, "div", "bottomUpsbar");
+	appendElement(bottomUpsbar, "span", "hideSpan", 'Hide');
+	appendElement(bottomUpsbar, "span", "commentSpan", "Comm");
 
 	let postMain = appendElement(div, "div", "postMain");
 
