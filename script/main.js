@@ -28,13 +28,28 @@ export function fetchSubreddit(sub)
 		.then(addPostHandlers)
 		.catch(handlePostsError);
 
+	showSidebar();
+
 	fetchRules(sub)
-		.then(renderRules);
+		.then(renderRules)
+		.catch(hideSidebar);
 
 	fetchInfo(sub)
-		.then(renderInfo);
+		.then(renderInfo)
+		.catch(hideSidebar);
 
-	let sidebar = document.getElementById("sidebar hidden");
+}
+
+function showSidebar()
+{
+	const sidebar = document.getElementById("sidebar");
 	if (sidebar)
-		sidebar.id = "sidebar";
+		sidebar.className = "";
+}
+
+function hideSidebar()
+{
+	const sidebar = document.getElementById("sidebar");
+	if (sidebar)
+		sidebar.className = "hidden";
 }
