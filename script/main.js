@@ -31,5 +31,7 @@ function fetchSubreddit(sub)
 
 	// info
 
-	document.getElementById("sidebar hidden").id = "sidebar";
+	let sidebar = document.getElementById("sidebar hidden");
+	if (sidebar)
+		sidebar.id = "sidebar";
 }
