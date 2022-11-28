@@ -2,7 +2,6 @@ import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./
 
 export function fetchPosts(sub = 'all', sort = 'hot', limit = '25')
 {
-
 	return fetch(`https://www.reddit.com/r/${sub}/${sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
@@ -44,6 +43,7 @@ export function renderPosts(posts)
 		alert("api sie zesralo 💩");
 
 	return new Promise((resolve, reject) => {
+		document.getElementById("posts").innerHTML = "";
 		posts.forEach(renderPost, document.getElementById("posts"));
 		resolve(posts);
 	});
@@ -75,12 +75,4 @@ export function addPostHandlers(posts)
 export function handlePostsError(err)
 {
 	alert(err); // 🤷
-}
-
-export function clearPreviousPosts(posts)
-{
-	return new Promise((resolve, reject) => {
-		document.getElementById("posts").innerHTML = "";
-		resolve(posts);
-	});
 }

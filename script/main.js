@@ -1,4 +1,4 @@
-import { addPostHandlers, clearPreviousPosts, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
+import { addPostHandlers, fetchPosts, handlePostsError, renderPosts } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
 
 window.onload = () => {
@@ -22,7 +22,6 @@ function fetchSubreddit(sub)
 	let sort = document.getElementById("sorting").value
 
 	fetchPosts(sub ? sub : "all", sort ? sort : "hot", limit ? limit : 25)
-		.then(clearPreviousPosts)
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError)
