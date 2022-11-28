@@ -1,4 +1,4 @@
-import { addPostHandlers, fetchPosts, fetchSearchPost, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
+import { addPostHandlers, clearPreviousPosts, fetchPosts, fetchSearchPost, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
 import { fetchInfo, renderInfo } from "./info.js";
 
@@ -25,6 +25,7 @@ export function fetchSubreddit(sub)
 
 	(search !== "" ? fetchSearchPost(sub ? sub : "all", sortType, limit, search) : fetchPosts(sub ? sub : "all", sortType, limit))
 		.then(posts => sortPostsByTitle(posts, sortType))
+		.then(clearPreviousPosts)
 		.then(renderPosts)
 		.then(addPostHandlers)
 		.catch(handlePostsError);

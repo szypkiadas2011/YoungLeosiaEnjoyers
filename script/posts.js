@@ -32,6 +32,14 @@ export function sortPostsByTitle(posts, sortType)
 	});
 }
 
+export function clearPreviousPosts(posts)
+{
+	return new Promise((resolve, reject) => {
+		document.getElementById("posts").innerHTML = "";
+		resolve(posts);
+	});
+}
+
 function renderPost(post)
 {
 	const div = document.createElement("div");
@@ -70,7 +78,6 @@ export function renderPosts(posts)
 		alert("api sie zesralo 💩");
 
 	return new Promise((resolve, reject) => {
-		document.getElementById("posts").innerHTML = "";
 		posts.forEach(renderPost, document.getElementById("posts"));
 		resolve(posts);
 	});
