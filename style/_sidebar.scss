@@ -15,12 +15,20 @@ output #sidebar
 
 	#info
 	{
-
+		background-color: white;
+		margin: 1rem;
+		padding: 1rem;
+		border-radius: $border-radius;
+		margin-top: 1rem;
 	}
 
 	#rules
 	{
-
+		background-color: white;
+		margin: 1rem;
+		padding: 1rem;
+		border-radius: $border-radius;
+		margin-top: 1rem;
 	}
 
 	&.hidden
