@@ -32,9 +32,10 @@ function renderPost(post)
 	div.id = `${post.subreddit}/${post.id}`;
 
 	let upsBar = appendElement(div, "div", "upsBar");
-	appendImage(upsBar, "up", "img/up.png", "Up");
-	appendElement(upsBar, "span", "ups", formatKs(post.ups));
-	appendImage(upsBar, "down", "img/down.png", "Down");
+	let arrows = appendElement(upsBar, "div", "arrows");
+	appendImage(arrows, "up", "img/up.png", "Up");
+	appendElement(arrows, "span", "ups", formatKs(post.ups));
+	appendImage(arrows, "down", "img/down.png", "Down");
 	appendElement(upsBar, "span", "hideSpan", 'Hide');
 
 	let postMain = appendElement(div, "div", "postMain");
