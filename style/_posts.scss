@@ -92,5 +92,35 @@
 				border-radius: $border-radius;
 			}
 		}
+		
+		.postComments
+        {
+            margin-top: .5rem;
+            border-top: 1px solid lightgray;
+
+            .comment
+            {
+                display: flex;
+                flex-direction: column;
+                margin: .5rem;
+                padding-bottom: .5rem;
+
+                &:not(:last-child)
+                {
+                    border-bottom: 1px solid lightgray;
+                }
+
+                .commentContent
+                {
+                    margin-left: 1rem;
+                }
+            }
+
+            &.hidden
+            {
+                display: none;
+            }
+        }
+
 	}
 }

@@ -86,8 +86,36 @@ export function renderPosts(posts)
 function addPostHandler(post)
 {
 	let postDiv = document.getElementById(`${post.subreddit}/${post.id}`);
-	let span = postDiv.children[0].children[1];
-	span.onclick = (e) => postDiv.outerHTML = "";
+
+    let span = postDiv.querySelector(".hideSpan");
+    span.onclick = () => postDiv.outerHTML = "";
+
+    let commentSpan = postDiv.querySelector(".commentSpan");
+    commentSpan.onclick = () => {
+        if (postDiv.querySelector(".postComments"))
+        {
+            let commentDiv = postDiv.querySelector(".postComments");
+            if (commentDiv.classList.contains("hidden"))
+                commentDiv.classList.remove("hidden");
+            else
+                commentDiv.classList.add("hidden");
+        }
+        else
+        {
+            let commentDiv = appendElement(postDiv.querySelector(".postMain"), "div", "postComments");
+
+            const appendComment = c => {
+                if (!c.author)
+                    return;
+
+                let comment = appendElement(commentDiv, "div", "comment", `u/${c.author} commented on ${formatDate(new Date(c.created * 1000))}`);
+                appendElement(comment, "span", "commentContent", c.body);
+            }
+            const handleComments = comments => comments.forEach(appendComment);
+
+            fetchPostComments(post.subreddit, post.id).then(handleComments);
+        }
+    }
 }
 
 export function addPostHandlers(posts)
