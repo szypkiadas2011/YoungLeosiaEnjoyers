@@ -4,7 +4,7 @@ export function fetchRules(sub)
 {
 	return fetch(`https://www.reddit.com/r/${sub}/about/rules.json`)
 		.then(res => res.json())
-		.then(json => json.rules)
+		.then(json => json.rules);
 }
 
 export function renderRules(rules)

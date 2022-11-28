@@ -1,20 +1,24 @@
 import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
 import { fetchSubreddit } from "./main.js";
 
-export function fetchPosts(sub, sort = "hot", limit = 25) {
+export function fetchPosts(sub, sort = "hot", limit = 25)
+{
 	return fetch(`https://www.reddit.com/r/${sub}/${customSort(sort) ? "hot" : sort}.json?limit=${limit}`)
 		.then(res => res.json())
-		.then(json => json.data.children.map(p => p.data))
+		.then(json => json.data.children.map(p => p.data));
 }
-	export function fetchSearchPost(sub, sort = "hot", limit = 25, search) {
-		return fetch(`https://www.reddit.com/r/${sub}/search.json?q=${search}&sort=${sort}&limit=${limit}`)
+
+export function fetchSearchPost(sub, sort = "hot", limit = 25, search)
+{
+	return fetch(`https://www.reddit.com/r/${sub}/search.json?q=${search}&sort=${sort}&limit=${limit}`)
 		.then(res => res.json())
-		.then(json => json.data.children.map(p => p.data))
+		.then(json => json.data.children.map(p => p.data));
 }
 
 const customSort = sort => sort === "az" || sort === "za";
 
-export function sortPostsByTitle(posts, sortType) {
+export function sortPostsByTitle(posts, sortType)
+{
 	return new Promise((resolve, reject) => {
 		if (!customSort(sortType))
 			return resolve(posts);
@@ -28,7 +32,8 @@ export function sortPostsByTitle(posts, sortType) {
 	});
 }
 
-function renderPost(post) {
+function renderPost(post)
+{
 	const div = document.createElement("div");
 	div.className = "post";
 	div.id = `${post.subreddit}/${post.id}`;
@@ -59,7 +64,8 @@ function renderPost(post) {
 	this.appendChild(div);
 }
 
-export function renderPosts(posts) {
+export function renderPosts(posts)
+{
 	if (posts.length === 0)
 		alert("api sie zesralo 💩");
 
@@ -70,32 +76,34 @@ export function renderPosts(posts) {
 	});
 }
 
-function addPostHandler(post) {
+function addPostHandler(post)
+{
 	let postDiv = document.getElementById(`${post.subreddit}/${post.id}`);
 	let span = postDiv.children[0].children[1];
-	span.onclick = (e) => {
-		postDiv.outerHTML = "";
-	}
+	span.onclick = (e) => postDiv.outerHTML = "";
 }
 
-export function addPostHandlers(posts) {
+export function addPostHandlers(posts)
+{
 	posts.forEach(addPostHandler);
-	let up = document.getElementsByClassName("up")
-	let down = document.getElementsByClassName("down")
+	let up = document.getElementsByClassName("up");
+	let down = document.getElementsByClassName("down");
 
-	for (let i = 0; i < up.length; i++) {
+	for (let i = 0; i < up.length; i++)
+	{
 		up[i].onclick = () => {
-			up[i].src = "img/up_click.png"
-			down[i].src = "img/down.png"
+			up[i].src = "img/up_click.png";
+			down[i].src = "img/down.png";
 		}
 		down[i].onclick = () => {
-			down[i].src = "img/down_click.png"
-			up[i].src = "img/up.png"
+			down[i].src = "img/down_click.png";
+			up[i].src = "img/up.png";
 		}
 	}
 }
 
-export function handlePostsError(err) {
-	fetchSubreddit()
-	alert(err) //do wyjebania 🤷
+export function handlePostsError(err)
+{
+	fetchSubreddit();
+	alert(err); //do wyjebania 🤷
 }

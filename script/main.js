@@ -45,7 +45,6 @@ export function fetchSubreddit(sub)
 	fetchInfo(sub)
 		.then(renderInfo)
 		.catch(hideSidebar);
-
 }
 
 function showSidebar()
