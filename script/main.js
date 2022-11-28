@@ -21,22 +21,15 @@ export function fetchSubreddit(sub)
 {
 	let limit = document.getElementById("postsLimit").value;
 	let sortType = document.getElementById("sorting").value;
-	let search = document.getElementById("filterbar").value
-	
+	let search = document.getElementById("filterbar").value;
 
-	if(search != ""){
-		fetchSearchPost(sub ? sub : "all", sortType, limit, search)
+	(search !== "" ? fetchSearchPost(sub ? sub : "all", sortType, limit, search) : fetchPosts(sub ? sub : "all", sortType, limit))
 		.then(posts => sortPostsByTitle(posts, sortType))
 		.then(renderPosts)
 		.then(addPostHandlers)
-		.catch(handlePostsError)
-	}else{
-		fetchPosts(sub ? sub : "all", sortType, limit)
-		.then(posts => sortPostsByTitle(posts, sortType))
-		.then(renderPosts)
-		.then(addPostHandlers)
-		.catch(handlePostsError)
-	}
+		.catch(handlePostsError);
+
+	setSidebarVisibility(true);
 
 	fetchRules(sub)
 		.then(renderRules)
@@ -47,16 +40,5 @@ export function fetchSubreddit(sub)
 		.catch(hideSidebar);
 }
 
-function showSidebar()
-{
-	const sidebar = document.getElementById("sidebar");
-	if (sidebar)
-		sidebar.className = "";
-}
-
-function hideSidebar()
-{
-	const sidebar = document.getElementById("sidebar");
-	if (sidebar)
-		sidebar.className = "hidden";
-}
+const setSidebarVisibility = v => document.getElementById("sidebar").className = v ? "" : "hidden";
+const hideSidebar = () => setSidebarVisibility(false);
