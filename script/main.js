@@ -1,5 +1,6 @@
 import { addPostHandlers, fetchPosts, handlePostsError, renderPosts, sortPostsByTitle } from "./posts.js";
 import { fetchRules, renderRules } from "./rules.js";
+import { fetchInfo, renderInfo } from "./info.js";
 
 window.onload = () => {
 	document.getElementById("logo").onclick = () => fetchSubreddit("all");
@@ -12,7 +13,7 @@ window.onload = () => {
 	fetchPosts("all")
 		.then(renderPosts)
 		.then(addPostHandlers)
-		.catch(handlePostsError)
+		.catch(handlePostsError);
 }
 
 
@@ -25,12 +26,13 @@ export function fetchSubreddit(sub)
 		.then(posts => sortPostsByTitle(posts, sort))
 		.then(renderPosts)
 		.then(addPostHandlers)
-		.catch(handlePostsError)
+		.catch(handlePostsError);
 
 	fetchRules(sub)
-		.then(renderRules)
+		.then(renderRules);
 
-	// info
+	fetchInfo(sub)
+		.then(renderInfo);
 
 	let sidebar = document.getElementById("sidebar hidden");
 	if (sidebar)
