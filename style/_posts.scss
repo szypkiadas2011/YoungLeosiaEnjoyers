@@ -29,6 +29,11 @@
 		img
 		{
 			max-width: 20px;
+
+			&:hover
+			{
+				cursor: pointer;
+			}
 		}
 	}
 
