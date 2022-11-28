@@ -19,6 +19,7 @@ function renderPost(post)
 	appendImage(upsBar, "up", "img/up.png", "Up");
 	appendElement(upsBar, "span", "ups", formatKs(post.ups));
 	appendImage(upsBar, "down", "img/down.png", "Down");
+	appendElement(upsBar, "span", "hideSpan", 'Hide');
 
 	let postMain = appendElement(div, "div", "postMain");
 
