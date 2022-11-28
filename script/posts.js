@@ -1,8 +1,7 @@
 import { appendElement, appendImage, formatDate, formatHtml, formatKs } from "./utils.js";
 import { fetchSubreddit } from "./main.js";
 
-export function fetchPosts(sub, sort = "hot", limit = 25)
-{
+export function fetchPosts(sub, sort = "hot", limit = 25) {
 	return fetch(`https://www.reddit.com/r/${sub}/${customSort(sort) ? "hot" : sort}.json?limit=${limit}`)
 		.then(res => res.json())
 		.then(json => json.data.children.map(p => p.data))
@@ -10,8 +9,7 @@ export function fetchPosts(sub, sort = "hot", limit = 25)
 
 const customSort = sort => sort === "az" || sort === "za";
 
-export function sortPostsByTitle(posts, sortType)
-{
+export function sortPostsByTitle(posts, sortType) {
 	return new Promise((resolve, reject) => {
 		if (!customSort(sortType))
 			return resolve(posts);
@@ -25,8 +23,7 @@ export function sortPostsByTitle(posts, sortType)
 	});
 }
 
-function renderPost(post)
-{
+function renderPost(post) {
 	const div = document.createElement("div");
 	div.className = "post";
 	div.id = `${post.subreddit}/${post.id}`;
@@ -57,8 +54,7 @@ function renderPost(post)
 	this.appendChild(div);
 }
 
-export function renderPosts(posts)
-{
+export function renderPosts(posts) {
 	if (posts.length === 0)
 		alert("api sie zesralo 💩");
 
@@ -69,13 +65,15 @@ export function renderPosts(posts)
 	});
 }
 
-function addPostHandler(post)
-{	
-
+function addPostHandler(post) {
+	let postDiv = document.getElementById(`${post.subreddit}/${post.id}`);
+	let span = postDiv.children[0].children[1];
+	span.onclick = (e) => {
+		postDiv.outerHTML = "";
+	}
 }
 
-export function addPostHandlers(posts)
-{
+export function addPostHandlers(posts) {
 	posts.forEach(addPostHandler);
 	let up = document.getElementsByClassName("up")
 	let down = document.getElementsByClassName("down")
@@ -92,8 +90,7 @@ export function addPostHandlers(posts)
 	}
 }
 
-export function handlePostsError(err)
-{
+export function handlePostsError(err) {
 	fetchSubreddit()
 	alert(err) //do wyjebania 🤷
 }
