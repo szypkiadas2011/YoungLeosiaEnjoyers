@@ -111,7 +111,7 @@ function addPostHandler(post)
                     return;
 
                 let comment = appendElement(commentDiv, "div", "comment", `u/${c.author} commented on ${formatDate(new Date(c.created * 1000))}`);
-                appendElement(comment, "span", "commentContent", c.body);
+                appendElement(comment, "span", "commentContent", formatHtml(c.body_html));
             }
             const handleComments = comments => comments.forEach(appendComment);
 

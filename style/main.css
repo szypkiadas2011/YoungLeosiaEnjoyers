@@ -211,13 +211,16 @@ output {
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 #posts .post .postMain .postComments .comment:not(:last-child) {
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid lightgray;
 }
 #posts .post .postMain .postComments .comment .commentContent {
   margin-left: 1rem;
+}
+#posts .post .postMain .postComments .comment .commentContent p {
+  margin: 0;
 }
 #posts .post .postMain .postComments.hidden {
   display: none;
