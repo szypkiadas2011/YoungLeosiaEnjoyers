@@ -89,6 +89,17 @@ function addPostHandler(post)
 {
 	let postDiv = document.getElementById(`${post.subreddit}/${post.id}`);
 
+	let up = postDiv.querySelector(".up");
+	let down = postDiv.querySelector(".down");
+	up.onclick = () => {
+		up.src = "img/up_click.png";
+		down.src = "img/down.png";
+	}
+	down.onclick = () => {
+		down.src = "img/down_click.png";
+		up.src = "img/up.png";
+	}
+
     let span = postDiv.querySelector(".hideSpan");
     span.onclick = () => postDiv.outerHTML = "";
 
@@ -123,20 +134,6 @@ function addPostHandler(post)
 export function addPostHandlers(posts)
 {
 	posts.forEach(addPostHandler);
-	let up = document.getElementsByClassName("up");
-	let down = document.getElementsByClassName("down");
-
-	for (let i = 0; i < up.length; i++)
-	{
-		up[i].onclick = () => {
-			up[i].src = "img/up_click.png";
-			down[i].src = "img/down.png";
-		}
-		down[i].onclick = () => {
-			down[i].src = "img/down_click.png";
-			up[i].src = "img/up.png";
-		}
-	}
 }
 
 export function handlePostsError(err)
